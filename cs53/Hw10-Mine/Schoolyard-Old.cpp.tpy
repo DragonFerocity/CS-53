@@ -1,0 +1,124 @@
+ostream& operator<<(ostream& os, Schoolyard& Yard)
+{
+  const int SCHOOL = Yard.m_SchoolSize_X-1;
+  int Row = 1, Column = 1, Slots = 0, Height = SCHOOL, Half = 2, Dropped = 0;
+  bool Even = false, Halfway = false;
+  //As Column goes up, Row goes down
+
+  //Start building the schoolyard, and the bottom of the school:
+  for (int k = 0; k < Yard.m_YardSize_X*2; k++)
+  {
+    
+    //Place = (Slots/2 + Even)*2;
+    //////////////////////////////////////////////////
+    //Spaces between edge of screen and left of yard//
+    //if (Slots != SCHOOL+1)
+    //{
+      if (!Halfway)
+      {
+        Row = Column;
+        Column = 1;
+        Slots = Row;
+        for (int j = 0; j < Yard.m_YardSize_X-Column-Slots+1; j++)
+          os << "    ";// << Slots;
+        os << ".~` ";
+        for (int i = 0; i < Slots; i++)
+        {
+          //os << "\b" << Column;
+          if ((Yard.m_Yard[Row-1][Column+1] == 'S' 
+            || Yard.m_Yard[Row-1][Column+1] == 'D') && Slots > SCHOOL && i < Slots/2-Even)
+          {
+            for (int i = 0; i < SCHOOL-(Slots-SCHOOL)+1; i++)
+              os << "`~.|";
+          }
+          else if ((Yard.m_Yard[Row-1][Column+1] == 'S' 
+            || Yard.m_Yard[Row-1][Column+1] == 'D') 
+            && Slots > SCHOOL && i >= Slots/2-Even)
+          {
+            for (int i = 0; i < SCHOOL-(Slots-SCHOOL)+1; i++)
+              os << "|.~`";
+          }
+          else if ((Yard.m_Yard[Row][Column] == 'S' 
+            || Yard.m_Yard[Row][Column] == 'D') 
+            && Slots > SCHOOL+1 && i >= Slots/2)
+          {
+            for (int i = 0; i < SCHOOL-(Slots-SCHOOL)+1; i++)
+              os << "|.~`";
+          }
+          else if (Yard.m_Yard[Row-1][Column] == 'D')
+            os << "`~.||.~`";
+          else if (Slots-(i+1) > 0 && Slots != SCHOOL+1)
+          {
+            if (Row > Slots/2)
+              os << "   " << Yard.m_Yard[Row-1][Column] << "    ";
+            else
+              os << "    " << Yard.m_Yard[Row-1][Column] << "   ";
+          }
+        
+          Column++;
+          Row--;
+        }
+        os << " `~." << endl;
+        if (Slots == Yard.m_YardSize_X)
+          Halfway = true;
+      }
+      else
+      {
+        Row = Yard.m_YardSize_X;
+        Column = 1+Dropped;
+        Slots = Row-Column+1;
+        for (int j = 0; j < Column-1; j++)
+          os << "    ";// << Slots;
+        os << "`~. ";
+        if (Slots == Yard.m_YardSize_X)
+          Half = 2;
+        else
+          Half = 1;
+        for (int i = 0; i < Slots-1; i++)
+        {
+          if (Row > Slots/2)
+            os << Yard.m_Yard[Row-1][Column] << "    " << "   ";
+          else
+            os << Yard.m_Yard[Row-1][Column] << "   " << "    ";;
+          //if (Row <= Slots/2 && Row-Half)
+          //  os << "   " << "    ";
+          //if (!(Row-0))
+           // os << Yard.m_Yard[Row-1][Column];
+          Column++;
+          Row--;
+        }
+        os << " .~`" << endl;
+        Column -= (Half);
+        Dropped++;
+      }
+    //}
+    if (Slots == SCHOOL && !Halfway)
+    {
+      //Column = Row;
+      for (int i = 0; i < Slots; i++)
+      {
+        for (int j = 0; j < Yard.m_YardSize_X-Slots; j++)
+          os << "    ";// << Slots;
+        os << "\b";
+        for (int j = 0; j < SCHOOL-Height+1; j++)
+          os << "|`~.";
+        if (Height != 1)
+          os << "    ";
+        for (int j = 0; j < Height-2; j++)
+          os << "    " << "    ";
+        if (Height != 1)
+          os << "    ";
+        os << "  ";
+        for (int j = 0; j < SCHOOL-Height+1; j++)
+          os << ".~`|";
+        os << endl;
+        Height--;
+      }
+      //os << endl;
+    }
+    Even = !Even;
+  }
+  os << endl << endl;
+  
+  return os;
+}

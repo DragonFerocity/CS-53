@@ -1,0 +1,75 @@
+#ifndef HW7FUNCTION_H
+#define HW7FUNCTIONS_H
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+struct Wookie
+{
+  string m_Name;
+  float m_Weight;
+  float m_Height;
+};
+
+//
+//
+//
+void Greeting();
+//
+//
+//
+void init_array(wookie Wookies[], const int WookieLength);
+//
+//
+//
+void init_array(char Letters[], const int LetterLength);
+//
+//
+//
+template <typename T>
+void ArraySort(T Array[], const int ArrayLength)
+{
+  short Index = 0, Position = 0;
+  
+  for (Index = 0; Index < ArrayLength; Index++)
+  {
+    Position = Index;
+    while (Array[Position] > Array[Position+1] && Position > 0)
+    {
+      Swap(Array[Position],Array[Position+1];
+      Position -= 1;
+    }
+  }
+  
+  return;
+}
+//
+//
+//
+template <typename T>
+void Swap(T & Item1, T & Item2)
+{
+  T OldValue = Item1;
+  Item1 = Item2;
+  Item2 = OldValue;
+  
+  return;
+}
+//
+//
+//
+template <typename T>
+void ArrayOutput(T Array[], int ArrayLength)
+{
+  for (int i = 0; i < ArrayLength; i++)
+    cout << Array[i] << endl;
+  
+  return;
+}
+//
+//
+//
+Goodbye();
+
+#endif

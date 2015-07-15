@@ -1,0 +1,30 @@
+//Ryan Andrews		Date: 4/23/14
+//Class CS 53		Section: B
+
+#ifndef CLASSMATE_H
+#define CLASSMATE_H
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Classmate
+{
+	private:
+		string m_Name;
+		int m_Posx;
+		int m_Posy;
+		int m_IQ;
+		
+	public:
+		Classmate():m_IQ(rand()%(20)+50){m_Name = "Bob"; Place();}
+		Classmate(const string Name):
+			m_IQ(rand()%(20)+50),m_Name(Name){Place();}
+		void Place();
+		void Set(const int IQ);
+		int Get();
+		friend ostream& operator<<(ostream& os, Classmate& Mate);
+		void Move(const int YardSize);
+};
+
+#endif

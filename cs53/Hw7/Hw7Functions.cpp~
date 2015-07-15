@@ -1,0 +1,66 @@
+//Ryan Andrews		Date: 4/1/14
+//Class: CS 53		Section: B
+
+#include "Hw7Functions.h"
+#include <iostream>
+using namespace std;
+
+void Greeting()
+{
+  cout << "Hello Ralphy! Let's get sorting!" << endl << endl;
+  
+  return;
+}
+
+void init_array(wookie Wookies[], const int WookieLength)
+{
+  const int WeightMin = 12, WeightMax = 78;
+  const int HeightMin = 10, HeightMax = 34;
+  
+  srand(time(NULL));
+  for (int i = 0; i < WookieLength; i++)
+  {
+    Wookies[i].m_Weight = rand()%(WeightMax-WeightMin+1)+WeightMin;
+    Wookies[i].m_Height = rand()%(HeightMax-HeightMin+1)+HeightMin;
+    cout << "What is the name of Wookie #" << i+1 << "?  ";
+    cin >> Wookies[i].m_Name;
+  }
+  
+  return;
+}
+
+void init_array(char Letters[], const int LetterLength)
+{
+  const int LetterMin = 65, LetterMax = 90; //ASCII Values
+  
+  srand(time(NULL));
+  for (int i = 0; i < LetterLength; i++)
+    Letters[i] = rand()%(LetterMax-LetterMin+1)+LetterMin;
+  
+  return;
+}
+
+void Goodbye()
+{
+  cout << "\nThanks for using this program, Ralphy! See you later!" << endl;
+  return;
+}
+
+bool operator > (const wookie Wookie1, const wookie Wookie2)
+{
+  int Wookie1Val, Wookie2Val;
+  
+  Wookie1Val = Wookie1.m_Weight + Wookie1.m_Height;
+  Wookie2Val = Wookie2.m_Weight + Wookie2.m_Height;
+  
+  return (Wookie1Val > Wookie2Val);
+}
+
+ostream& operator << (ostream & os, const wookie & Wookie)
+{
+  os << Wookie.m_Name << " weighs " << Wookie.m_Weight << " oz and is "
+     << Wookie.m_Height << " inches tall.";
+  
+	
+  return os;
+}

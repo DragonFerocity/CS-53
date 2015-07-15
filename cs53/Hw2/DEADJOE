@@ -1,0 +1,34 @@
+
+*** These modified files were found in JOE when it aborted on Fri Feb  7 11:35:03 2014
+*** JOE was aborted because the terminal closed
+
+*** File 'H2.cpp'
+//Name: Ryan Andrews		Date: February 1, 2014
+//Class: CS 53
+//Section: 1B
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int iq, Age, CrayonNum, IqLoss;
+  float PasteAmt;
+  bool PoliceChief = 0;
+  const short GLUE_POT = 20; //GLUE_POT: Glue potency;
+  const float SWGF = 1.6;
+  cout << "Greetings! Welcome to the IQ calculator." << "" << endl << endl;
+  cout << "Please enter the following information:" << endl;
+  cout << "   Your IQ:  ";
+  cin >> iq; 
+  cout << "   Your Age:  ";
+  cin >> Age;
+  cout << "   Oz's of paste eaten:  ";
+  cin >> PasteAmt;
+  cout << "   Number of crayons stuck in nose:  ";
+  cin >> CrayonNum;
+  cout << "   Is your dad the Police Chief? (1: Yes, 0: no):  ";
+  cin >> PoliceChief;
+  (iq < 150) ? 
+    IqLoss = 
+  static_cast<float>(Age)/iq

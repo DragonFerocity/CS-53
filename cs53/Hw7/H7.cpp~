@@ -1,0 +1,27 @@
+//Ryan Andrews		Date: 4/1/14
+//Class: CS 53		Section: B
+
+#include "Hw7Functions.h"
+using namespace std;
+
+int main()
+{
+  const int WookieLength = 8, LetterLength = 10;
+  wookie Wookies[WookieLength]; 
+    //Contains the names, weights, and heights of the wookies
+  char Letters[LetterLength] = {0}; 
+    //Contains the letters that Ralph has
+  
+  Greeting();
+  init_array(Wookies, WookieLength);
+  init_array(Letters, LetterLength);
+  ArraySort(Wookies, WookieLength);
+  ArraySort(Letters, LetterLength);
+	cout << endl << endl;
+  ArrayOutput(Wookies, WookieLength);
+	cout << endl;
+  ArrayOutput(Letters, LetterLength);
+  Goodbye();
+  
+  return 0;
+}

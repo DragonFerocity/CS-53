@@ -1,0 +1,82 @@
+//Ryan Andrews		Date: January 27, 2014
+//File: Hw1.txt
+//Section: 1B
+1. You are given a wrod to find in a dictionary. Your algorithm is to
+describe how this is done.
+	  I. Open the dictionary to the first page.
+	 II. Look at the first word on the page and compare that word to the
+	     word you are looking for. If the words don't match, continue to the next
+	     step.
+	III. Look at the next word on the page, moving to the next column
+	     when necessary, or flipping the page when necessary. Compare that word to
+	     the word you are looking for. If the words don't match, continue to the next
+	     step.
+	 IV. Repeat step III, until you find the word you are looking for.
+
+
+2. Describe how to arrive at the value of A/B given that A and Ba are whole
+numbers
+	  I. Set C equal to 0. If B is greater than A, don't continue to
+	     the next step; the answer is 0. If B is less than A, move on to the next
+	     step.
+	 II. Increase C by 1. Multiply B by C, and set that equal to B'. If
+	     B' is greater than A, move to step III. If B' is less than A, repeat step
+	     II.
+	III. If B' is less than A, repeat step II. Otherwise, your answer C
+	     decreased by 1.
+
+
+3. What kind of bunny am I hunting? What are the weather conditions? 
+	  I. Wake up
+	 II. Look out the window to see if it is raining. If it is raining,
+	     set Rain to true. If it is not raining set Rain to false.
+	III. Look at the thermometer to see what the temperature is. Store
+	     the temperature as Temp. 
+	 IV. Now go and find your mother and ask her what kind of bunny she
+	     wants to cook for dinner. Remember the kind of bunny as BunnyType.
+	  V. Go to the garage where your guns are stored. 
+	 VI. If BunnyType (the bunny your mom wants) is equal to Plastic, and
+	     Temp is less than or equal to 0 degrees Celcius, pick up the Shotgun and go
+	     out and try to shoot some Plastic bunnies. Otherwise move on to the next step.
+	VII. If BunnyType is equal to Chocolate, and Temp is less than or
+	     equal to 20 degrees Celcius and Rain is equal to false, pick up either the Shotgun
+	     or the Rifle and go out and try to shoot some chocolate bunnies. If BunnyType is equal
+	     to Chocolate, and Temp is less than or equal to 20 degrees Celcius, and Rain
+	     is equal to true, pick up the Shotgun and go outside and try to shoot some
+	     chocolate bunnies. Otherwise, move on to the next step.
+       VIII. If BunnyType is equal to Porcelain, and Temp is greater than or
+	     equal to 0 degrees Celcius, and Rain is equal to false, pick up the rifle,
+	     and go out and try to shoot some porcelain bunnies. If BunnyType is equal to
+	     Porcelain, and Temp is greater than or equal to 0 degrees Celcius, and Rain
+	     is equal to true, Stop, you can hunt Porcelain bunnies in the rain because
+	     rifles can't be used in the rain.
+	 IX. Repeat step 1 through 9 for the rest of your days.
+
+
+4. Guess the bunnies number.
+	  I. Wait for the bunny to think of it's number.
+	 II. Once the bunny tells you it has a number, select a number
+	     between 0 and 9, remember this as Digit1
+	III. Now select a number between 0 and
+	     9, and multiply that number by 10, remeber this as Digit10.
+	 IV. Now select a number between 0 and 9 again, and multiply this number by 100, remember this
+	     as Digit100.
+	  V. Now add Digit1 + Digit10 + Digit100 to get your 3 digit-number,
+	     remember this as DigitFull.
+	 VI. Proceed to ask the bunny if DigitFull is the number it was
+	     thinking of, If the bunny says No, move on to step 5. If the bunny says Yes,
+	     stop, and shoot the bunnie.
+	VII. Listen to the three digit-number that the bunny tells you. If there is a zero in the ones
+	     place, you know that Digit1 is wrong. If there is a one in the ones place,
+	     you know that Digit1 is correct.
+       VIII. If there is a zero in the tens place, then you know that
+	     Digit10 is wrong. If there is a one in the tens place, then you know that
+	     Digit10 is correct.
+	 IX. If there is a zero in the hundreds place, then you know that
+	     Digit100 is wrong. If there is a one in the hundreds place, then you know
+	     that Digit100 is correct.
+          X. If Digit1 is wrong, repeat step 2, and then return to step 10.
+	 XI. If Digit10 is wrong, repeat step 3, and then return to step 11.
+	XII. If Digit100 is wrong, repeate step 4, and then return to step
+	     12.
+       XIII. Now repeat steps 5 through 13.
